@@ -108,6 +108,18 @@ fun what_month (day : int) =
 val m = what_month(100);
 
 
+    (*10*)
+fun month_range(day1 : int, day2 : int) =
+    if (day1 > day2) then
+        []
+    else
+        if (day1 = day2) then
+          what_month(day1) :: []
+        else
+          what_month(day1) :: month_range(day1 + 1, day2);
+
+val r = month_range(90, 101);
+
     (*11*)
 fun oldest_date (dates : (int*int*int) list) =
     if null dates then
