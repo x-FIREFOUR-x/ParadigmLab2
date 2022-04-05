@@ -28,7 +28,7 @@ fun numbers_in_month (dates : (int*int*int) list, month : int) =
 val y = numbers_in_month([(2002,12,1),(2002,11,10),(2002,12,10)], 12);
 
 
-(*3*)
+    (*3*)
 fun numbers_in_months (dates : (int*int*int) list, months : int list) = 
     if null months then 
         0
@@ -36,3 +36,16 @@ fun numbers_in_months (dates : (int*int*int) list, months : int list) =
         numbers_in_months(dates, tl months) + numbers_in_month(dates, hd months);
 
 val y = numbers_in_months([(2003, 1, 30), (2003, 1, 30), (2003, 2, 30), (2003, 2, 30), (2003, 3, 30)], [1, 2]);
+
+
+    (*4*)
+fun dates_in_month (dates : (int*int*int) list, month : int) =
+    if null dates then
+        []
+    else
+        if #2 (hd dates) = month then 
+          (hd dates) :: dates_in_month(tl dates, month)
+        else
+           dates_in_month(tl dates, month);
+
+val t = dates_in_month([(2003, 1, 30), (2003, 2, 28), (2003, 2, 20), (2003, 1, 25), (2003, 1, 11)], 1);
