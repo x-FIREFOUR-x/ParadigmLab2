@@ -98,6 +98,16 @@ fun number_before_reaching_sum (sum : int, lis : int list) =
 val n_month = number_before_reaching_sum(100,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]);
  
 
+    (*9*)
+fun what_month (day : int) =
+    if (day > 0) andalso (day < 366) then
+        number_before_reaching_sum(day,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
+    else
+        0;
+
+val m = what_month(100);
+
+
     (*11*)
 fun oldest_date (dates : (int*int*int) list) =
     if null dates then
