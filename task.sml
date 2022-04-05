@@ -49,3 +49,13 @@ fun dates_in_month (dates : (int*int*int) list, month : int) =
            dates_in_month(tl dates, month);
 
 val t = dates_in_month([(2003, 1, 30), (2003, 2, 28), (2003, 2, 20), (2003, 1, 25), (2003, 1, 11)], 1);
+
+
+    (*5*)
+fun dates_in_months (dates : (int*int*int) list, months : int list) =
+    if null months then
+        []
+    else
+       dates_in_month(dates, hd months) @ dates_in_months(dates, tl months);
+
+val c = dates_in_months([(2003, 1, 3), (2001, 3, 1), (1507, 7, 1), (2000, 1, 14), (1976, 3, 15)],[1,3]);
