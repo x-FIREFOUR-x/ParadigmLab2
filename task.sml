@@ -85,7 +85,18 @@ fun date_to_string(date : int*int*int) =
 val b = date_to_string(2000,10,9);
 
 
+    (*8*)
+fun number_before_reaching_sum (sum : int, lis : int list) =
+    if null lis then
+        0
+    else
+        if sum - (hd lis) > 0 then
+            number_before_reaching_sum(sum - hd lis, tl lis) + 1
+        else
+          1;
 
+val n_month = number_before_reaching_sum(100,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]);
+ 
 
     (*11*)
 fun oldest_date (dates : (int*int*int) list) =
