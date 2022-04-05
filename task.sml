@@ -63,7 +63,7 @@ val c = dates_in_months([(2003, 1, 3), (2001, 3, 1), (1507, 7, 1), (2000, 1, 14)
 
 (*6*)
 fun get_nth(strings : string list, n : int) =
-    if (null strings) orelse (n <= 0) then
+    if (null strings) then
         ""
     else
         if (n = 1) then
@@ -71,5 +71,15 @@ fun get_nth(strings : string list, n : int) =
         else
             get_nth(tl strings, n-1);
 
-val c = get_nth(["abc1","def2","3gjk","4klm","5nprs"], 3);
+val c = get_nth(["abc1","def2","3gjk","4klm","5nprs"], 9);
 
+
+(*7*)
+fun date_to_string(date : int*int*int) =
+    get_nth([
+        ("January"), ("February"), ("March"), ("April"),
+        ("May"), ("June"), ("July"), ("August"),
+         ("September"), ("October"), ("November"), ("December")
+    ],(#2 date)) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date); 
+
+val b = date_to_string(2000,10,9);
