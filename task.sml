@@ -61,7 +61,7 @@ fun dates_in_months (dates : (int*int*int) list, months : int list) =
 val c = dates_in_months([(2003, 1, 3), (2001, 3, 1), (1507, 7, 1), (2000, 1, 14), (1976, 3, 15)],[1,3]);
 
 
-(*6*)
+    (*6*)
 fun get_nth(strings : string list, n : int) =
     if (null strings) then
         ""
@@ -74,7 +74,7 @@ fun get_nth(strings : string list, n : int) =
 val c = get_nth(["abc1","def2","3gjk","4klm","5nprs"], 9);
 
 
-(*7*)
+    (*7*)
 fun date_to_string(date : int*int*int) =
     get_nth([
         ("January"), ("February"), ("March"), ("April"),
@@ -83,3 +83,28 @@ fun date_to_string(date : int*int*int) =
     ],(#2 date)) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date); 
 
 val b = date_to_string(2000,10,9);
+
+
+
+
+    (*11*)
+fun oldest_date (dates : (int*int*int) list) =
+    if null dates then
+        NONE
+    else 
+        let fun oldest_nonempty (dates : (int*int*int) list) =
+            if null (tl dates) then
+                hd dates
+            else let val tl_ans = oldest_nonempty(tl dates)
+                in
+                    if is_older(hd dates, tl_ans) then
+                        hd dates
+                    else
+                        tl_ans
+                end
+    in
+        SOME (oldest_nonempty(dates))
+    end
+
+val u = valOf(oldest_date([(1800,10,20), (1799,10,10), (1801,10,10)]));
+
