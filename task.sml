@@ -59,3 +59,17 @@ fun dates_in_months (dates : (int*int*int) list, months : int list) =
        dates_in_month(dates, hd months) @ dates_in_months(dates, tl months);
 
 val c = dates_in_months([(2003, 1, 3), (2001, 3, 1), (1507, 7, 1), (2000, 1, 14), (1976, 3, 15)],[1,3]);
+
+
+(*6*)
+fun get_nth(strings : string list, n : int) =
+    if (null strings) orelse (n <= 0) then
+        ""
+    else
+        if (n = 1) then
+            hd strings
+        else
+            get_nth(tl strings, n-1);
+
+val c = get_nth(["abc1","def2","3gjk","4klm","5nprs"], 3);
+
