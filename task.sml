@@ -3,16 +3,16 @@
 fun is_older (date1: int* int* int, date2: int* int* int) = 
     if (#1 date1) < (#1 date2) then 
         true
-    else if (#2 date1) < (#2 date2) then
+    else if (#2 date1) < (#2 date2) andalso (#1 date1) = (#1 date2) then
         true
     else
-        if (#3 date1) < (#3 date2) then
+        if (#3 date1) < (#3 date2) andalso (#1 date1) = (#1 date2) andalso (#2 date1) = (#2 date2) then
             true
         else 
             false
 val res1 = is_older((12,12,12), (12,12,12));
 val res1 = is_older((11,12,12), (12,12,12));
-val res1 = is_older((12,12,12), (11,12,12));
+val res1 = is_older((13,10,11), (13,10,11));
 
 
     (*2*)
