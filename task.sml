@@ -93,7 +93,7 @@ fun number_before_reaching_sum (sum : int, lis : int list) =
         if sum - (hd lis) > 0 then
             number_before_reaching_sum(sum - hd lis, tl lis) + 1
         else
-          1;
+          0;
 
 val res8 = number_before_reaching_sum(100,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]);
  
@@ -101,7 +101,7 @@ val res8 = number_before_reaching_sum(100,[31, 28, 31, 30, 31, 30, 31, 31, 30, 3
     (*9*)
 fun what_month (day : int) =
     if (day > 0) andalso (day < 366) then
-        number_before_reaching_sum(day,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
+        number_before_reaching_sum(day,[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]) + 1 
     else
         0;
 
