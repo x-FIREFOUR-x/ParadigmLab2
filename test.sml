@@ -25,14 +25,14 @@ fun provided2_test1 () =
     let val dates = [(2020,12,6), (2021, 5,10), (2003,7,18)]
         val month = 7
     in
-        numbers_in_month(dates, month)
+        number_in_month(dates, month)
     end;
 
 fun provided2_test2 () = 
     let val dates = [(2002,12,1),(2002,11,10),(2002,12,10)]
         val month = 12
     in
-        numbers_in_month(dates, month)
+        number_in_month(dates, month)
     end;
 
 val res2_1 = provided2_test1();
@@ -45,14 +45,14 @@ fun provided3_test1 () =
     let val dates = [(2003, 1, 30), (2003, 1, 30), (2003, 2, 30), (2003, 3, 30), (2003, 2, 30)]
         val months = [1, 2]
     in
-        numbers_in_months(dates, months)
+        number_in_months(dates, months)
     end;
 
 fun provided3_test2 () = 
     let val dates = [(2002,12,1),(2002,11,10),(2002,12,10)]
         val months = [3, 10]
     in
-        numbers_in_months(dates, months)
+        number_in_months(dates, months)
     end;
 
 val res3_1 = provided3_test1();

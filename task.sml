@@ -14,23 +14,23 @@ fun is_older (date1: int* int* int, date2: int* int* int) =
 
 
     (*2*)
-fun numbers_in_month (dates : (int*int*int) list, month : int) =
+fun number_in_month (dates : (int*int*int) list, month : int) =
     if null dates
     then 0
     else 
         if #2 (hd dates) = month then 
-            numbers_in_month(tl dates, month) + 1 
+            number_in_month(tl dates, month) + 1 
         else 
-            numbers_in_month(tl dates, month); 
+            number_in_month(tl dates, month); 
 
 
 
     (*3*)
-fun numbers_in_months (dates : (int*int*int) list, months : int list) = 
+fun number_in_months (dates : (int*int*int) list, months : int list) = 
     if null months then 
         0
     else 
-        numbers_in_months(dates, tl months) + numbers_in_month(dates, hd months);
+        number_in_months(dates, tl months) + numbers_in_month(dates, hd months);
 
 
 
